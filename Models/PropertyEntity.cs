@@ -1,19 +1,19 @@
 using System;
 using System.Collections.Generic;
 
-namespace Property.Models // Replace with your desired namespace
+namespace NeatlyApi.Models
 {
-  public class Property
+  public class PropertyEntity : BaseModelClass
   {
     public int Id { get; set; } // Assuming you have an ID field
 
     public int CustomerId { get; set; }
 
-    public Customer Customer { get; set; } // Assuming you have a Customer class
+    public CustomerEntity? Customer { get; set; } // Assuming you have a Customer class
 
-    public string Address { get; set; }
+    public string Address { get; set; } = string.Empty;
 
-    public string PropertyType { get; set; }
+    public string PropertyType { get; set; } = string.Empty;
 
     public int? Bedrooms { get; set; }
 
@@ -26,6 +26,6 @@ namespace Property.Models // Replace with your desired namespace
     public bool IsPrimary { get; set; }
 
     // Navigation property for associated jobs
-    public List<Job> Jobs { get; set; } // Assuming you have a Job class
+    public List<JobEntity>? Jobs { get; set; } // Assuming you have a Job class
   }
 }

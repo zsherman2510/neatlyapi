@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using NeatlyApi.Models;
 
-namespace CustomerContext.Data
+namespace NeatlyApi.Data
 {
   public class CustomerDbContext : DbContext
   {
@@ -8,21 +9,23 @@ namespace CustomerContext.Data
     {
     }
 
-    public DbSet<Customer> Customers { get; set; }
+    public DbSet<CustomerEntity> Customers { get; set; }
 
     // Configure relationships or additional DbSet properties here if needed
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-      modelBuilder.Entity<Customer>()
+      modelBuilder.Entity<CustomerEntity>()
          .HasMany(c => c.Jobs)
          .WithOne(j => j.Customer)
          .HasForeignKey(j => j.CustomerId);
 
-      modelBuilder.Entity<Customer>()
+      modelBuilder.Entity<CustomerEntity>()
           .HasMany(c => c.Properties)
           .WithOne(p => p.Customer)
           .HasForeignKey(p => p.CustomerId);
     }
   }
 }
+
+

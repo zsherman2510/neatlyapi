@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("neatlyapi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c360a73c4a8fe763e25f48b016667a745fb4377a")]
 [assembly: System.Reflection.AssemblyProductAttribute("neatlyapi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("neatlyapi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

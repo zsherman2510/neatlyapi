@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using NeatlyApi.Models;
 
-namespace PropertyContext.Data
+namespace NeatlyApi.Data
 {
   public class PropertyDbContext : DbContext
   {
@@ -8,13 +9,13 @@ namespace PropertyContext.Data
     {
     }
 
-    public DbSet<Property> Properties { get; set; }
+    public DbSet<PropertyEntity> Properties { get; set; }
 
     // Configure relationships or additional DbSet properties here if needed
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-      modelBuilder.Entity<Property>()
+      modelBuilder.Entity<PropertyEntity>()
           .HasOne(p => p.Customer)
           .WithMany(c => c.Properties) // Assuming you have a Properties navigation property in Customer
           .HasForeignKey(p => p.CustomerId);

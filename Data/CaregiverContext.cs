@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using NeatlyApi.Models;
 
-namespace CaregiverContext.Data
+namespace NeatlyApi.Data
 {
   public class CaregiverDbContext : DbContext
   {
@@ -8,7 +9,7 @@ namespace CaregiverContext.Data
     {
     }
 
-    public DbSet<Caregiver> Caregivers { get; set; }
+    public DbSet<CaregiverEntity> Caregivers { get; set; }
 
     // Configure relationships or additional DbSet properties here if needed
 

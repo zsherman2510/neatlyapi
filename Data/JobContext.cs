@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using NeatlyApi.Models;
 
-namespace JobContext.Data
+namespace NeatlyApi.Data
 {
   public class JobDbContext : DbContext
   {
@@ -8,26 +9,26 @@ namespace JobContext.Data
     {
     }
 
-    public DbSet<Job> Jobs { get; set; }
+    public DbSet<JobEntity> Jobs { get; set; }
 
     // Configure relationships or additional DbSet properties here if needed
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-      modelBuilder.Entity<Job>()
+      modelBuilder.Entity<JobEntity>()
            .HasOne(j => j.Customer)
            .WithMany(c => c.Jobs)
            .HasForeignKey(j => j.CustomerId);
 
-      modelBuilder.Entity<Job>()
+      modelBuilder.Entity<JobEntity>()
           .HasOne(j => j.Property)
           .WithMany(p => p.Jobs)
           .HasForeignKey(j => j.PropertyId);
 
-      modelBuilder.Entity<Job>()
-          .HasOne(j => j.Cleaner)
+      modelBuilder.Entity<JobEntity>()
+          .HasOne(j => j.Caregiver)
           .WithMany(c => c.Jobs)
-          .HasForeignKey(j => j.CleanerId);
+          .HasForeignKey(j => j.CaregiverId);
     }
   }
 }
